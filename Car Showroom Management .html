@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Showroom Management</title>
+</head>
+<body>
+    <h1>Welcome to Car Showroom</h1>
+    <a href="/add">Add New Car</a> |
+    <a href="/view">View Cars</a> |
+    <a href="/sold">Sold Cars</a>
+</body>
+</html>
+#templates/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Showroom Management</title>
+</head>
+<body>
+    <h1>Welcome to Car Showroom</h1>
+    <a href="/add">Add New Car</a> |
+    <a href="/view">View Cars</a> |
+    <a href="/sold">Sold Cars</a>
+</body>
+</html>
+#templates/add_car.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Car</title>
+</head>
+<body>
+    <h2>Add New Car</h2>
+    <form method="POST">
+        Model: <input type="text" name="model" required><br><br>
+        Brand: <input type="text" name="brand" required><br><br>
+        Price: <input type="number" name="price" required><br><br>
+        <button type="submit">Add Car</button>
+    </form>
+</body>
+</html>
+#templates/view_cars.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Cars</title>
+</head>
+<body>
+    <h2>Available Cars</h2>
+    <table border="1">
+        <tr><th>ID</th><th>Model</th><th>Brand</th><th>Price</th><th>Action</th></tr>
+        {% for car in cars %}
+        <tr>
+            <td>{{ car[0] }}</td>
+            <td>{{ car[1] }}</td>
+            <td>{{ car[2] }}</td>
+            <td>{{ car[3] }}</td>
+            <td><a href="/sell/{{ car[0] }}">Sell</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/">Back</a>
+</body>
+</html>
+#templates/sold_cars.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sold Cars</title>
+</head>
+<body>
+    <h2>Sold Cars</h2>
+    <table border="1">
+        <tr><th>ID</th><th>Model</th><th>Brand</th><th>Price</th></tr>
+        {% for car in cars %}
+        <tr>
+            <td>{{ car[0] }}</td>
+            <td>{{ car[1] }}</td>
+            <td>{{ car[2] }}</td>
+            <td>{{ car[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/">Back</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
